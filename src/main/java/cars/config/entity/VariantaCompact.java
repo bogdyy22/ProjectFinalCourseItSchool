@@ -21,7 +21,7 @@ import lombok.ToString;
 @Getter
 @ToString
 
-public class VariantaCompact extends Car implements Serializable  {
+public class VariantaCompact extends Car implements Serializable {
 
 	@Id
 	@Column(name = "Id")
@@ -32,7 +32,7 @@ public class VariantaCompact extends Car implements Serializable  {
 	@Column(name = "Variant_Car")
 
 	private CompactVariant compactVariant;
-	
+
 	@Column(name = "Horse_Power")
 	private int hp;
 
