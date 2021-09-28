@@ -24,7 +24,6 @@ import lombok.ToString;
 public class VariantaCoupe extends Car implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Coupe_id")
 	private int id;
 
 	@Enumerated(EnumType.STRING)
@@ -45,9 +44,9 @@ public class VariantaCoupe extends Car implements Serializable {
 	@Column(name = "Prices")
 	private long price;
 
-	public VariantaCoupe(int id, CoupeVariant coupeVariant, String model, String sasiu, int hp,
+	public VariantaCoupe(CoupeVariant coupeVariant, String model, String sasiu, int hp,
 			TransmisionVariant transmisionVariant, CaroserieTyp caroserieTyp, long price) {
-		super(id, model, sasiu, caroserieTyp);
+		super(model, sasiu, caroserieTyp);
 		this.coupeVariant = coupeVariant;
 		this.hp = hp;
 		this.price = price;

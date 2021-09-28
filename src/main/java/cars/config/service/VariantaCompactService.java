@@ -19,8 +19,8 @@ public class VariantaCompactService {
 		variantaCompactDao.saveVariantaCompact(variantaCompact);
 		try {
 			variantaCompactDao.closeCurrentSessionwithTransaction();
-		} catch (ro.hibernate.exception.CustomHibernateException e) {
-			log.error("Nu sa putut salva Varianta Coupe");
+		} catch (Exception e) {
+			log.error("Nu sa putut salva Varianta Compact");
 		}
 	}
 
@@ -41,7 +41,7 @@ public class VariantaCompactService {
 	}
 
 	// Update Post
-	public void updatePost(VariantaCompact newVariantaCompact) {
+	public void updateVariantaCompact(VariantaCompact newVariantaCompact) {
 		try {
 			variantaCompactDao.openCurrentSessionwithTransaction();
 			variantaCompactDao.updateVariantaCompact(newVariantaCompact);

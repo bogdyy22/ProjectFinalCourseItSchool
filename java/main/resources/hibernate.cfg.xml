@@ -26,6 +26,7 @@
 		<property name="hibernate.dbcp.maxWaitMillis">-1</property>
 
 		<!-- Mapping entities -->
+		<mapping class="cars.config.entity.CarsList" />
 		<mapping class="cars.config.entity.VariantaCompact" />
 		<mapping class="cars.config.entity.VariantaLimuzin" />
 		<mapping class="cars.config.entity.VariantaCoupe" />

@@ -17,12 +17,10 @@ import lombok.ToString;
 @Setter
 @ToString
 @MappedSuperclass
-@AllArgsConstructor
 public class Car {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Id")
 	private int id;
 
 	@Column(name = "Model")
@@ -34,5 +32,13 @@ public class Car {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "Caroserie")
 	protected CaroserieTyp caroserieTyp;
+
+	public Car(String model, String sasiu, CaroserieTyp caroserieTyp) {
+		this.model = model;
+		this.sasiu = sasiu;
+		this.caroserieTyp = caroserieTyp;
+	}
+	
+	
 
 }

@@ -43,16 +43,14 @@ public class VariantaCompact extends Car implements Serializable {
 	@Column(name = "Prices", unique = false)
 	private long price;
 
-//	@OneToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-//	@JoinColumn(name = "post_id")
-//	private VariantaCompact variantaCompact;
 
-	public VariantaCompact(int id, CompactVariant compactVariant, String model, String sasiu, int hp,
+	public VariantaCompact(CompactVariant compactVariant, String model, String sasiu, int hp,
 			TransmisionVariant transmisionVariant, CaroserieTyp caroserieTyp, long price) {
-		super(id, model, sasiu, caroserieTyp);
+		super(model, sasiu, caroserieTyp);
 		this.compactVariant = compactVariant;
 		this.hp = hp;
 		this.price = price;
 		this.transmisionVariant = transmisionVariant;
 	}
+
 }
