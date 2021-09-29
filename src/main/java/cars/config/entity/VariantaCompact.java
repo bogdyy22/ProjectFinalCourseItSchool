@@ -1,6 +1,5 @@
 package cars.config.entity;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -36,14 +35,18 @@ public class VariantaCompact {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "Caroserie_Compact")
 	private CaroserieTyp caroserieTyp;
-	
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "Color")
+	private ColorVariant colorVariant;
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "CompactVariant")
 	private CompactVariant compactVariant;
 
 	@Column(name = "Power")
 	private int hp;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "Caroserie")
 	private TransmisionVariant transmisionVariant;
@@ -51,13 +54,13 @@ public class VariantaCompact {
 	@Column(name = "Price")
 	private long price;
 
-
-	public VariantaCompact(String model, String sasiu, CaroserieTyp caroserieTyp, CompactVariant compactVariant, int hp,
-			TransmisionVariant transmisionVariant, long price) {
+	public VariantaCompact(String model, String sasiu, CaroserieTyp caroserieTyp, ColorVariant colorVariant,
+			CompactVariant compactVariant, int hp, TransmisionVariant transmisionVariant, long price) {
 		super();
 		this.model = model;
 		this.sasiu = sasiu;
 		this.caroserieTyp = caroserieTyp;
+		this.colorVariant = colorVariant;
 		this.compactVariant = compactVariant;
 		this.hp = hp;
 		this.transmisionVariant = transmisionVariant;

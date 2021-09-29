@@ -9,13 +9,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
+@Entity(name = "Configurator")
+@Table(name = "TabelClienti")
 @Setter
 @Getter
 @NoArgsConstructor
@@ -25,8 +27,6 @@ public class CarsList {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	private String varianta;
 
 	private String variantList;
 
@@ -63,9 +63,8 @@ public class CarsList {
 		this.LimuzinsVariant.remove(variantaLimuzin);
 	}
 
-	public CarsList(String varianta, String variantList) {
+	public CarsList(String variantList) {
 		super();
-		this.varianta = varianta;
 		this.variantList = variantList;
 
 	}

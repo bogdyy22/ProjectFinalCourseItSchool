@@ -19,7 +19,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @NoArgsConstructor
-@ToString // (exclude = "CoupeModel")
+@ToString 
 
 public class VariantaCoupe {
 	@Id
@@ -37,6 +37,10 @@ public class VariantaCoupe {
 	private CaroserieTyp caroserieTyp;
 
 	@Enumerated(EnumType.STRING)
+	@Column(name = "Color")
+	private ColorVariant colorVariant;
+
+	@Enumerated(EnumType.STRING)
 	@Column(name = "CoupeVariant")
 	private CoupeVariant coupeVariant;
 
@@ -50,12 +54,13 @@ public class VariantaCoupe {
 	@Column(name = "Price")
 	private long price;
 
-	public VariantaCoupe(String model, String sasiu, CaroserieTyp caroserieTyp, CoupeVariant coupeVariant, int hp,
-			TransmisionVariant transmisionVariant, long price) {
+	public VariantaCoupe(String model, String sasiu, CaroserieTyp caroserieTyp, ColorVariant colorVariant,
+			CoupeVariant coupeVariant, int hp, TransmisionVariant transmisionVariant, long price) {
 		super();
 		this.model = model;
 		this.sasiu = sasiu;
 		this.caroserieTyp = caroserieTyp;
+		this.colorVariant = colorVariant;
 		this.coupeVariant = coupeVariant;
 		this.hp = hp;
 		this.transmisionVariant = transmisionVariant;
