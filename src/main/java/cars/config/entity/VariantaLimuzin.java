@@ -1,7 +1,5 @@
 package cars.config.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,43 +10,56 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
-@Table(name = "VariantaLimuzin")
-@Getter
+@Entity(name = "Limuzin")
+@Table(name = "Limuzin_Variant")
 @Setter
-@ToString
-public class VariantaLimuzin extends Car implements Serializable {
+@Getter
+@NoArgsConstructor
+@ToString // (exclude = "LimuzinModel")
+
+public class VariantaLimuzin {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	@Column(name = "Model")
+	private String model;
+
+	@Column(name = "Serie_sasiu")
+	private String sasiu;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "Variant_Car")
-	protected LimuzinVariant limuzinVariant;
-
-	@Column(name = "Horse_Power")
-	protected int hp;
+	@Column(name = "Caroserie_Limuzin")
+	private CaroserieTyp caroserieTyp;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "Transmision_Car")
-	protected TransmisionVariant transmisionVariant;
+	@Column(name = "LimuzinVariant")
+	private LimuzinVariant limuzinVariant;
+
+	@Column(name = "Power")
+	private int hp;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "Body_Car")
-	protected CaroserieTyp bodyType;
+	@Column(name = "Caroserie")
+	private TransmisionVariant transmisionVariant;
 
-	@Column(name = "Prices")
-	protected long price;
+	@Column(name = "Price")
+	private long price;
 
-	public VariantaLimuzin(LimuzinVariant limuzinVariant, String model, String sasiu, int hp,
-			TransmisionVariant transmisionVariant, CaroserieTyp caroserieTyp, long price) {
-		super(model, sasiu, caroserieTyp);
+	public VariantaLimuzin(String model, String sasiu, CaroserieTyp caroserieTyp, LimuzinVariant limuzinVariant, int hp,
+			TransmisionVariant transmisionVariant, long price) {
+		super();
+		this.model = model;
+		this.sasiu = sasiu;
+		this.caroserieTyp = caroserieTyp;
 		this.limuzinVariant = limuzinVariant;
 		this.hp = hp;
-		this.price = price;
 		this.transmisionVariant = transmisionVariant;
+		this.price = price;
 	}
+
 }

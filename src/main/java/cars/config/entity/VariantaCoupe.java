@@ -1,7 +1,5 @@
 package cars.config.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,45 +10,56 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
-@Table(name = "VariantaCoupe")
+@Entity(name = "Coupe")
+@Table(name = "Coupe_Variant")
 @Setter
 @Getter
-@ToString
+@NoArgsConstructor
+@ToString // (exclude = "CoupeModel")
 
-public class VariantaCoupe extends Car implements Serializable {
+public class VariantaCoupe {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@Column(name = "Model")
+	private String model;
+
+	@Column(name = "Serie_sasiu")
+	private String sasiu;
+
 	@Enumerated(EnumType.STRING)
-	@Column(name = "Variant_Car")
+	@Column(name = "Caroserie_Compact")
+	private CaroserieTyp caroserieTyp;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "CoupeVariant")
 	private CoupeVariant coupeVariant;
 
-	@Column(name = "Horse_Power")
+	@Column(name = "Power")
 	private int hp;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "Transmision_Car")
+	@Column(name = "Caroserie")
 	private TransmisionVariant transmisionVariant;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "Body_Car")
-	private CaroserieTyp bodyType;
-
-	@Column(name = "Prices")
+	@Column(name = "Price")
 	private long price;
 
-	public VariantaCoupe(CoupeVariant coupeVariant, String model, String sasiu, int hp,
-			TransmisionVariant transmisionVariant, CaroserieTyp caroserieTyp, long price) {
-		super(model, sasiu, caroserieTyp);
+	public VariantaCoupe(String model, String sasiu, CaroserieTyp caroserieTyp, CoupeVariant coupeVariant, int hp,
+			TransmisionVariant transmisionVariant, long price) {
+		super();
+		this.model = model;
+		this.sasiu = sasiu;
+		this.caroserieTyp = caroserieTyp;
 		this.coupeVariant = coupeVariant;
 		this.hp = hp;
-		this.price = price;
 		this.transmisionVariant = transmisionVariant;
+		this.price = price;
 	}
 
 }

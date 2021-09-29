@@ -1,6 +1,5 @@
 package cars.config.entity;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,45 +11,57 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
-@Table()
+@Entity(name = "Compact")
+@Table(name = "Compact_Variant")
 @Setter
 @Getter
+@NoArgsConstructor
 @ToString
-
-public class VariantaCompact extends Car implements Serializable {
+public class VariantaCompact {
 
 	@Id
-	@Column(name = "Id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "Variant_Car")
+	@Column(name = "Model")
+	private String model;
 
+	@Column(name = "Serie_sasiu")
+	private String sasiu;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "Caroserie_Compact")
+	private CaroserieTyp caroserieTyp;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "CompactVariant")
 	private CompactVariant compactVariant;
 
-	@Column(name = "Horse_Power")
+	@Column(name = "Power")
 	private int hp;
-
+	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "Transmision_Car")
+	@Column(name = "Caroserie")
 	private TransmisionVariant transmisionVariant;
 
-	@Column(name = "Prices", unique = false)
+	@Column(name = "Price")
 	private long price;
 
 
-	public VariantaCompact(CompactVariant compactVariant, String model, String sasiu, int hp,
-			TransmisionVariant transmisionVariant, CaroserieTyp caroserieTyp, long price) {
-		super(model, sasiu, caroserieTyp);
+	public VariantaCompact(String model, String sasiu, CaroserieTyp caroserieTyp, CompactVariant compactVariant, int hp,
+			TransmisionVariant transmisionVariant, long price) {
+		super();
+		this.model = model;
+		this.sasiu = sasiu;
+		this.caroserieTyp = caroserieTyp;
 		this.compactVariant = compactVariant;
 		this.hp = hp;
-		this.price = price;
 		this.transmisionVariant = transmisionVariant;
+		this.price = price;
 	}
 
 }
