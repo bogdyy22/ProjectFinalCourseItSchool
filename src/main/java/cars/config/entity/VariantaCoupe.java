@@ -56,7 +56,6 @@ public class VariantaCoupe {
 
 	public VariantaCoupe(String model, String sasiu, CaroserieTyp caroserieTyp, ColorVariant colorVariant,
 			CoupeVariant coupeVariant, int hp, TransmisionVariant transmisionVariant, long price) {
-		super();
 		this.model = model;
 		this.sasiu = sasiu;
 		this.caroserieTyp = caroserieTyp;

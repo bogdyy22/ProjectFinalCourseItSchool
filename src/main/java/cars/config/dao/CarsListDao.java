@@ -54,7 +54,7 @@ public class CarsListDao {
 	// Read All
 	public List<CarsList> getAllCarsList() {
 		openCurrentSession();
-		List<CarsList> carsLis = session.createQuery("from Varianta-Compact").list();
+		List<CarsList> carsLis = session.createQuery("from CarsList").list();
 		closeCurrentSession();
 		return carsLis;
 	}

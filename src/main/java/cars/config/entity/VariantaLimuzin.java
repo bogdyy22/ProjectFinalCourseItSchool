@@ -38,7 +38,7 @@ public class VariantaLimuzin {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "Color")
-	private ColorVariant  colorVariant;
+	private ColorVariant colorVariant;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "LimuzinVariant")
@@ -56,7 +56,6 @@ public class VariantaLimuzin {
 
 	public VariantaLimuzin(String model, String sasiu, CaroserieTyp caroserieTyp, ColorVariant colorVariant,
 			LimuzinVariant limuzinVariant, int hp, TransmisionVariant transmisionVariant, long price) {
-		super();
 		this.model = model;
 		this.sasiu = sasiu;
 		this.caroserieTyp = caroserieTyp;
@@ -66,9 +65,5 @@ public class VariantaLimuzin {
 		this.transmisionVariant = transmisionVariant;
 		this.price = price;
 	}
-
-	
-	
-	
 
 }

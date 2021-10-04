@@ -56,7 +56,6 @@ public class VariantaCompact {
 
 	public VariantaCompact(String model, String sasiu, CaroserieTyp caroserieTyp, ColorVariant colorVariant,
 			CompactVariant compactVariant, int hp, TransmisionVariant transmisionVariant, long price) {
-		super();
 		this.model = model;
 		this.sasiu = sasiu;
 		this.caroserieTyp = caroserieTyp;
